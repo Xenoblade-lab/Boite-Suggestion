@@ -32,6 +32,7 @@ Boite-a-suggestion/
 ├── docs/                              # Documentation (hors exécution)
 │   ├── Documentation.md
 │   ├── Plan-detaille.md
+│   ├── Plan-realisation-etapes.md     # Étapes de réalisation + sécurisation en fin
 │   ├── Structure-et-arborescence.md   # ce fichier
 │   └── modele.md                      # Référence d’architecture (projet UPC / théologie)
 │
@@ -193,6 +194,7 @@ Boite a suggestion/
 └── docs/
     ├── Documentation.md
     ├── Plan-detaille.md
+    ├── Plan-realisation-etapes.md
     ├── Structure-et-arborescence.md
     └── modele.md
 ```

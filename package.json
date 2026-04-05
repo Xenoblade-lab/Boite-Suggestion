@@ -1,0 +1,11 @@
+{
+  "name": "boite-a-suggestion",
+  "private": true,
+  "description": "Racine du dépôt — le front Next.js est dans front-react/",
+  "scripts": {
+    "dev": "npm run dev --prefix front-react",
+    "build": "npm run build --prefix front-react",
+    "start": "npm run start --prefix front-react",
+    "lint": "npm run lint --prefix front-react"
+  }
+}
