@@ -71,7 +71,7 @@ En complément des champs `id`, `nom`, `promotion`, `type`, `message`, `date` :
 | Couche | Technologie | Points à décider |
 |--------|-------------|------------------|
 | Frontend | HTML, CSS, JavaScript | Pages séparées (public / admin) ou routage léger côté PHP. |
-| Backend | PHP | Organisation des dossiers (`public/`, `src/` ou `includes/`, `config/`). |
+| Backend | PHP | Organisation MVC : `public/` (front), `controllers/`, `models/`, `views/`, `router/`, `routes/`, `service/`, `includes/`, `config/` (voir `Structure-et-arborescence.md`). |
 | Base de données | MySQL | Script SQL versionné ; éventuellement migrations simples. |
 
 ### 4.2 Sécurité (prioritaire)
