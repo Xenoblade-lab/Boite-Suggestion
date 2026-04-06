@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin | Boîte à suggestions FASI</title>
+    <link rel="stylesheet" href="css/app.css" />
+  </head>
+  <body>
+    <div class="site">
+      <div id="site-header-root"></div>
+      <main class="site-main py-8">
+        <div class="container max-w-6xl mx-auto">
+          <p style="margin: 0 0 1rem; display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center">
+            <a href="index.html" class="nav-link" style="display: inline-flex; width: auto">← Site public</a>
+            <a href="login.html" class="nav-link" style="display: inline-flex; width: auto">Connexion</a>
+          </p>
+          <div class="page-head">
+            <h1>Tableau de bord Admin</h1>
+            <p>Gérez toutes les suggestions et préoccupations des étudiants (démo locale)</p>
+          </div>
+
+          <div class="admin-stats">
+            <div class="admin-stat-card">
+              <div style="font-size: 0.875rem; color: var(--muted-foreground); margin-bottom: 0.5rem">Total</div>
+              <div class="text-3xl" style="font-size: 1.875rem; font-weight: 700; color: var(--primary)" id="stat-total">0</div>
+            </div>
+            <div class="admin-stat-card">
+              <div style="font-size: 0.875rem; color: var(--muted-foreground); margin-bottom: 0.5rem">En attente</div>
+              <div style="font-size: 1.875rem; font-weight: 700; color: #ca8a04" id="stat-pending">0</div>
+            </div>
+            <div class="admin-stat-card">
+              <div style="font-size: 0.875rem; color: var(--muted-foreground); margin-bottom: 0.5rem">Résolus</div>
+              <div style="font-size: 1.875rem; font-weight: 700; color: #16a34a" id="stat-resolved">0</div>
+            </div>
+            <div class="admin-stat-card">
+              <div style="font-size: 0.875rem; color: var(--muted-foreground); margin-bottom: 0.5rem">Approuvés</div>
+              <div style="font-size: 1.875rem; font-weight: 700; color: #059669" id="stat-approved">0</div>
+            </div>
+          </div>
+
+          <div class="admin-filters">
+            <div class="search-wrap" style="flex: 1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="position: absolute; left: 0.75rem; top: 50%; transform: translateY(-50%); color: var(--muted-foreground)"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input type="search" id="admin-search" class="input" style="padding-left: 2.5rem" placeholder="Rechercher par nom ou message..." />
+            </div>
+            <select id="filter-type" class="select" style="max-width: 12rem">
+              <option value="all">Tous les types</option>
+              <option value="suggestion">Suggestion</option>
+              <option value="problem">Problème</option>
+              <option value="idea">Idée</option>
+            </select>
+            <select id="filter-status" class="select" style="max-width: 12rem">
+              <option value="all">Tous les statuts</option>
+              <option value="pending">En attente</option>
+              <option value="in-progress">En cours</option>
+              <option value="resolved">Résolu</option>
+              <option value="approved">Approuvé</option>
+            </select>
+          </div>
+
+          <div class="table-wrap">
+            <table class="data-table" id="admin-table">
+              <thead>
+                <tr>
+                  <th>Auteur</th>
+                  <th>Type</th>
+                  <th>Message</th>
+                  <th>Statut</th>
+                  <th>Date</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+      <div id="site-footer-root"></div>
+    </div>
+
+    <div class="modal-backdrop" id="admin-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal">
+        <h2 id="modal-title">Répondre à la suggestion</h2>
+        <p class="desc" id="modal-message"></p>
+        <textarea id="modal-response" class="textarea" style="min-height: 8rem" placeholder="Votre réponse..."></textarea>
+        <div style="display: flex; gap: 0.5rem; margin-top: 1rem; justify-content: flex-end">
+          <button type="button" class="btn btn--outline" id="modal-close">Fermer</button>
+          <button type="button" class="btn btn--primary" id="modal-send">Envoyer la réponse</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/icons.js"></script>
+    <script>
+      document.body.dataset.page = "home"
+      window.ADMIN_SUGGESTIONS_DATA = [
+        {
+          id: "1",
+          name: "Ahmed Ben Ali",
+          promotion: "2023",
+          type: "suggestion",
+          message: "Améliorer les équipements du laboratoire d'informatique",
+          date: "2024-04-03",
+          status: "in-progress",
+          isAnonymous: false,
+        },
+        {
+          id: "2",
+          name: "Anonymous",
+          promotion: "",
+          type: "problem",
+          message: "Les salles ne sont pas assez climatisées",
+          date: "2024-04-02",
+          status: "pending",
+          isAnonymous: true,
+        },
+        {
+          id: "3",
+          name: "Fatima Khaled",
+          promotion: "2024",
+          type: "idea",
+          message: "Créer un club de développement logiciel",
+          date: "2024-04-01",
+          status: "approved",
+          isAnonymous: false,
+        },
+        {
+          id: "4",
+          name: "Anonymous",
+          promotion: "",
+          type: "problem",
+          message: "Augmenter les heures d'ouverture de la bibliothèque",
+          date: "2024-03-31",
+          status: "resolved",
+          isAnonymous: true,
+        },
+      ]
+    </script>
+    <script src="js/partials.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/admin.js"></script>
+  </body>
+</html>

@@ -4,6 +4,9 @@ Plateforme pour la **Faculté des Sciences Informatiques** : les étudiants y d�
 
 **Stack prévue :** PHP, MySQL, HTML/CSS/JavaScript.
 
+- **`frontend/`** : version **HTML / CSS / JS** statique (accueil, guide, stats, admin démo, **charte**, **confidentialité**, **mentions légales**, **merci**, **login** / **mot de passe oublié**, **403** / **404**). Servir avec Laragon ou tout serveur HTTP local.
+- **`front-react/`** : prototype **Next.js** (développement : `npm run dev` depuis la racine du dépôt ou `front-react/`).
+
 La documentation (présentation, plan détaillé, arborescence cible) se trouve dans le dossier [`docs/`](docs/).
 
 ## Description du dépôt (GitHub / GitLab)

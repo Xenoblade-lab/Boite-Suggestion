@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Détail suggestion | FASI</title>
+    <link rel="stylesheet" href="css/app.css" />
+  </head>
+  <body data-page="mes-suggestions">
+    <div class="site">
+      <div id="site-header-root"></div>
+      <main class="site-main py-8">
+        <div class="container max-w-6xl mx-auto">
+          <div class="back-row">
+            <a href="mes-suggestions.html" class="btn btn--ghost btn--sm" style="display: inline-flex">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+              Retour
+            </a>
+          </div>
+
+          <div class="detail-grid">
+            <div>
+              <div class="card" style="margin-bottom: 1.5rem">
+                <div class="card__body">
+                  <h1 style="margin: 0 0 1rem; font-size: 1.5rem">Amélioration des équipements du laboratoire</h1>
+                  <div style="display: flex; flex-wrap: wrap; gap: 0.5rem">
+                    <span class="badge badge--primary" style="border: 1px solid var(--border)">Suggestion</span>
+                    <span class="badge" style="background: color-mix(in srgb, #3b82f6 12%, transparent); color: #1d4ed8; border: 1px solid #bfdbfe">En cours</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card" style="margin-bottom: 1.5rem">
+                <div class="card__body">
+                  <div class="author-row">
+                    <div class="avatar">A</div>
+                    <div>
+                      <div style="font-weight: 600">Ahmed Ben Ali</div>
+                      <div style="font-size: 0.875rem; color: var(--muted-foreground)">Promo 2023</div>
+                      <div style="font-size: 0.75rem; color: var(--muted-foreground)">2024-04-03</div>
+                    </div>
+                  </div>
+                  <div style="border-top: 1px solid var(--border); padding-top: 1rem; margin-top: 1rem">
+                    <p style="margin: 0; line-height: 1.7">
+                      Je propose d'améliorer les équipements du laboratoire d'informatique. Les ordinateurs sont vieillissants et les logiciels ne sont pas à jour. Cela impacte notre apprentissage et notre productivité.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card__body">
+                  <h3 style="margin: 0 0 1rem; display: flex; align-items: center; gap: 0.5rem">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    Commentaires (<span id="comment-count">2</span>)
+                  </h3>
+                  <div id="comments-list"></div>
+                  <div style="margin-top: 1rem">
+                    <textarea id="new-comment" class="textarea" style="min-height: 6rem" placeholder="Ajouter un commentaire..."></textarea>
+                    <button type="button" class="btn btn--primary" id="add-comment" style="margin-top: 0.75rem">Publier le commentaire</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="card" style="margin-bottom: 1.5rem">
+                <div class="card__body">
+                  <h4 style="margin: 0 0 1rem">Informations</h4>
+                  <div style="display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.875rem">
+                    <div><span style="color: var(--muted-foreground); font-size: 0.7rem; text-transform: uppercase">ID</span><div style="font-family: monospace">#1</div></div>
+                    <div><span style="color: var(--muted-foreground); font-size: 0.7rem; text-transform: uppercase">Date</span><div>2024-04-03</div></div>
+                    <div><span style="color: var(--muted-foreground); font-size: 0.7rem; text-transform: uppercase">Catégorie</span><div>Suggestion</div></div>
+                    <div><span style="color: var(--muted-foreground); font-size: 0.7rem; text-transform: uppercase">Statut</span><div>En cours</div></div>
+                  </div>
+                </div>
+              </div>
+              <div class="card" style="background: color-mix(in oklch, var(--accent) 5%, var(--card)); border-color: color-mix(in oklch, var(--accent) 20%, var(--border))">
+                <div class="card__body">
+                  <h4 style="margin: 0 0 0.5rem">Merci pour votre contribution !</h4>
+                  <p style="margin: 0; font-size: 0.875rem; color: var(--muted-foreground)">
+                    Votre suggestion aide à améliorer la faculté. Nous examinerons votre demande dans les plus brefs délais.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <div id="site-footer-root"></div>
+    </div>
+
+    <script src="js/icons.js"></script>
+    <script>
+      window.SUGGESTION_COMMENTS_DATA = [
+        {
+          id: "1",
+          author: "Prof. Mohamed Karim",
+          role: "admin",
+          content:
+            "Merci pour cette suggestion pertinente. Nous avons transmis votre demande à la direction. Une réunion est programmée la semaine prochaine pour discuter du budget.",
+          date: "2024-04-03 10:30",
+        },
+        {
+          id: "2",
+          author: "Ahmed Ben Ali",
+          role: "student",
+          content: "Merci pour la réponse rapide. Y a-t-il une estimation du délai pour la mise à jour ?",
+          date: "2024-04-03 14:15",
+        },
+      ]
+    </script>
+    <script src="js/partials.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/suggestion-detail.js"></script>
+  </body>
+</html>

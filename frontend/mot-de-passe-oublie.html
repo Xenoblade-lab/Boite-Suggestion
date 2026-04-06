@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mot de passe oublié | FASI</title>
+    <meta name="robots" content="noindex" />
+    <link rel="stylesheet" href="css/app.css" />
+  </head>
+  <body data-page="forgot">
+    <div class="site">
+      <div id="site-header-root"></div>
+      <main class="site-main py-8">
+        <div class="container">
+          <div class="page-title-block max-w-2xl mx-auto" style="text-align: center; border: none">
+            <h1>Mot de passe oublié</h1>
+            <p class="lead">Réinitialisation du compte administrateur (maquette — à brancher sur le backend PHP).</p>
+          </div>
+          <div class="card auth-card" style="margin-top: 2rem">
+            <div class="card__body">
+              <p style="color: var(--muted-foreground); line-height: 1.7; margin: 0 0 1.25rem">
+                En production, vous recevrez un lien sécurisé par e-mail si votre compte est reconnu. Pour l'instant,
+                contactez le responsable informatique du PREFAC ou utilisez la procédure définie par votre université.
+              </p>
+              <form id="forgot-form" class="form-stack" style="gap: 1rem">
+                <div class="field">
+                  <label for="forgot-email" class="label">Adresse e-mail du compte</label>
+                  <input type="email" id="forgot-email" class="input" autocomplete="email" required />
+                </div>
+                <button type="submit" class="btn btn--primary btn--lg">Envoyer le lien (démo)</button>
+              </form>
+              <p id="forgot-msg" class="hidden" style="margin-top: 1rem; padding: 1rem; background: var(--muted); border-radius: var(--radius); font-size: 0.875rem">
+                En démonstration, aucun e-mail n'est envoyé. Implémentez cette étape côté PHP avec un jeton à usage unique.
+              </p>
+            </div>
+          </div>
+          <p class="text-center" style="margin-top: 1.5rem">
+            <a href="login.html" class="nav-link" style="display: inline-flex; width: auto; font-size: 0.875rem">← Retour à la connexion</a>
+          </p>
+        </div>
+      </main>
+      <div id="site-footer-root"></div>
+    </div>
+    <script src="js/icons.js"></script>
+    <script src="js/partials.js"></script>
+    <script src="js/nav.js"></script>
+    <script>
+      document.getElementById("forgot-form").addEventListener("submit", function (e) {
+        e.preventDefault()
+        document.getElementById("forgot-msg").classList.remove("hidden")
+      })
+    </script>
+  </body>
+</html>

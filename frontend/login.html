@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connexion admin | FASI</title>
+    <meta name="robots" content="noindex" />
+    <link rel="stylesheet" href="css/app.css" />
+  </head>
+  <body data-page="login">
+    <div class="site">
+      <div id="site-header-root"></div>
+      <main class="site-main py-8">
+        <div class="container">
+          <div class="page-title-block max-w-2xl mx-auto" style="text-align: center; border: none; padding: 0">
+            <h1>Connexion administrateur</h1>
+            <p class="lead">Accès réservé aux membres du PREFAC habilités (démo sans vérification réelle).</p>
+          </div>
+          <div class="card auth-card" style="margin-top: 2rem; box-shadow: var(--shadow-xl)">
+            <div class="card__body">
+              <form id="login-form" class="form-stack" style="gap: 1.25rem">
+                <div class="field">
+                  <label for="login-email" class="label">Identifiant ou e-mail</label>
+                  <input type="text" id="login-email" name="email" class="input" autocomplete="username" required />
+                </div>
+                <div class="field">
+                  <label for="login-password" class="label">Mot de passe</label>
+                  <input type="password" id="login-password" name="password" class="input" autocomplete="current-password" required />
+                </div>
+                <button type="submit" class="btn btn--primary btn--lg">Se connecter</button>
+              </form>
+              <div class="auth-links">
+                <a href="mot-de-passe-oublie.html">Mot de passe oublié ?</a>
+              </div>
+            </div>
+          </div>
+          <p class="text-center" style="margin-top: 1.5rem">
+            <a href="index.html" class="nav-link" style="display: inline-flex; width: auto; font-size: 0.875rem">← Retour au site public</a>
+          </p>
+        </div>
+      </main>
+      <div id="site-footer-root"></div>
+    </div>
+    <script src="js/icons.js"></script>
+    <script src="js/partials.js"></script>
+    <script src="js/nav.js"></script>
+    <script>
+      document.getElementById("login-form").addEventListener("submit", function (e) {
+        e.preventDefault()
+        window.location.href = "admin.html"
+      })
+    </script>
+  </body>
+</html>

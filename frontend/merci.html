@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Merci pour votre message | FASI</title>
+    <meta name="robots" content="noindex" />
+    <link rel="stylesheet" href="css/app.css" />
+  </head>
+  <body data-page="merci">
+    <div class="site">
+      <div id="site-header-root"></div>
+      <main class="site-main">
+        <section class="section-form">
+          <div class="container">
+            <div class="max-w-2xl mx-auto">
+              <div class="card">
+                <div class="success-panel" style="padding: 2.5rem 1.5rem">
+                  <div class="success-panel__icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  </div>
+                  <h1 style="font-size: 1.75rem; margin: 0 0 0.75rem">Merci pour votre contribution !</h1>
+                  <p style="color: var(--muted-foreground); margin: 0 0 1.5rem; line-height: 1.6">
+                    Votre
+                    <strong id="merci-type-label">message</strong>
+                    a bien été pris en compte dans cette démo. Après branchement au serveur, il sera enregistré en base
+                    de données et traité par le PREFAC.
+                  </p>
+                  <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center">
+                    <a href="index.html" class="btn btn--outline">Retour à l'accueil</a>
+                    <a href="index.html#suggestion-form" class="btn btn--primary" id="merci-new">Nouvelle soumission</a>
+                  </div>
+                  <p style="margin-top: 1.5rem; font-size: 0.8125rem; color: var(--muted-foreground)">
+                    <a href="charte.html">Charte d'utilisation</a>
+                    ·
+                    <a href="confidentialite.html">Confidentialité</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <div id="site-footer-root"></div>
+    </div>
+    <script src="js/icons.js"></script>
+    <script src="js/partials.js"></script>
+    <script src="js/nav.js"></script>
+    <script>
+      ;(function () {
+        var params = new URLSearchParams(window.location.search)
+        var t = params.get("type") || "suggestion"
+        var labels = { suggestion: "suggestion", probleme: "signalement", idee: "idée" }
+        var el = document.getElementById("merci-type-label")
+        if (el) el.textContent = labels[t] || "message"
+        var a = document.getElementById("merci-new")
+        if (a) a.setAttribute("href", "index.html#suggestion-form")
+      })()
+    </script>
+  </body>
+</html>

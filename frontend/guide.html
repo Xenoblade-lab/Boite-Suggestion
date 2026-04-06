@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guide | FASI</title>
+    <link rel="stylesheet" href="css/app.css" />
+  </head>
+  <body data-page="guide">
+    <div class="site">
+      <div id="site-header-root"></div>
+      <main class="site-main py-8">
+        <div class="container max-w-4xl mx-auto">
+          <div class="text-center mb-8">
+            <h1 style="font-size: 2.25rem; margin-bottom: 1rem">Guide d'utilisation</h1>
+            <p style="color: var(--muted-foreground); font-size: 1.125rem; max-width: 36rem; margin: 0 auto">
+              Découvrez comment utiliser la boîte à suggestions FASI et trouvez des réponses à vos questions.
+            </p>
+          </div>
+
+          <div class="steps-card">
+            <h2 style="margin: 0 0 1.5rem; font-size: 1.5rem">Comment ça marche ?</h2>
+            <div class="steps-grid">
+              <div class="step-item">
+                <div class="step-num">1</div>
+                <h4 style="margin: 0 0 0.25rem; font-weight: 600">Remplissez le formulaire</h4>
+                <p style="margin: 0; font-size: 0.875rem; color: var(--muted-foreground)">Exprimez votre suggestion</p>
+              </div>
+              <div class="step-item">
+                <div class="step-num">2</div>
+                <h4 style="margin: 0 0 0.25rem; font-weight: 600">Soumettez</h4>
+                <p style="margin: 0; font-size: 0.875rem; color: var(--muted-foreground)">Envoyez votre contribution</p>
+              </div>
+              <div class="step-item">
+                <div class="step-num">3</div>
+                <h4 style="margin: 0 0 0.25rem; font-weight: 600">Suivi</h4>
+                <p style="margin: 0; font-size: 0.875rem; color: var(--muted-foreground)">Suivez l'évolution</p>
+              </div>
+              <div class="step-item">
+                <div class="step-num">4</div>
+                <h4 style="margin: 0 0 0.25rem; font-weight: 600">Résultat</h4>
+                <p style="margin: 0; font-size: 0.875rem; color: var(--muted-foreground)">Voyez les changements</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tips-grid">
+            <div class="tip-card">
+              <div class="feature-card__icon" style="margin-bottom: 1rem; background: color-mix(in oklch, var(--accent) 10%, transparent); color: var(--accent)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
+              </div>
+              <h3 style="margin: 0 0 0.5rem">Soyez précis</h3>
+              <p style="margin: 0; font-size: 0.875rem; color: var(--muted-foreground)">
+                Plus votre suggestion est détaillée, plus elle sera facile à comprendre et à traiter.
+              </p>
+            </div>
+            <div class="tip-card">
+              <div class="feature-card__icon" style="margin-bottom: 1rem; background: color-mix(in oklch, var(--accent) 10%, transparent); color: var(--accent)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <h3 style="margin: 0 0 0.5rem">Confidentialité garantie</h3>
+              <p style="margin: 0; font-size: 0.875rem; color: var(--muted-foreground)">
+                Vous pouvez soumettre anonymement. Vos données sont sécurisées et confidentielles.
+              </p>
+            </div>
+            <div class="tip-card">
+              <div class="feature-card__icon" style="margin-bottom: 1rem; background: color-mix(in oklch, var(--accent) 10%, transparent); color: var(--accent)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              </div>
+              <h3 style="margin: 0 0 0.5rem">Réponse rapide</h3>
+              <p style="margin: 0; font-size: 0.875rem; color: var(--muted-foreground)">
+                Nous nous engageons à répondre dans les 7 jours. Suivez votre suggestion en temps réel.
+              </p>
+            </div>
+          </div>
+
+          <div class="card" style="padding: 2rem">
+            <h2 style="margin: 0 0 1.5rem; font-size: 1.5rem">Questions fréquentes</h2>
+            <div class="faq-filters">
+              <button type="button" class="filter-btn is-active" data-cat="all">Tous</button>
+              <button type="button" class="filter-btn" data-cat="general">Général</button>
+              <button type="button" class="filter-btn" data-cat="submission">Soumission</button>
+              <button type="button" class="filter-btn" data-cat="privacy">Confidentialité</button>
+              <button type="button" class="filter-btn" data-cat="technical">Technique</button>
+            </div>
+            <div id="faq-list">
+              <div class="faq-item is-open" data-category="general">
+                <button type="button" class="faq-q">Qu'est-ce que la boîte à suggestions FASI ? <span aria-hidden="true"><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span></button>
+                <div class="faq-a">La boîte à suggestions FASI est une plateforme numérique qui permet aux étudiants de soumettre leurs suggestions, préoccupations et idées pour améliorer la Faculté des Sciences Informatiques. Cette plateforme facilite la communication entre les étudiants et l'administration pour une meilleure qualité de vie universitaire.</div>
+              </div>
+              <div class="faq-item" data-category="submission">
+                <button type="button" class="faq-q">Comment soumettre une suggestion ? <span aria-hidden="true"><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span></button>
+                <div class="faq-a">C'est très simple ! Allez sur la page d'accueil, remplissez le formulaire en sélectionnant le type de contribution (suggestion, problème ou idée), entrez votre message et cliquez sur « Envoyer ». Vous pouvez choisir de soumettre anonymement ou avec votre nom.</div>
+              </div>
+              <div class="faq-item" data-category="submission">
+                <button type="button" class="faq-q">Quels types de contributions puis-je soumettre ? <span aria-hidden="true"><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span></button>
+                <div class="faq-a">Vous pouvez soumettre trois types : les Suggestions (améliorations), les Problèmes (signalements), et les Idées (concepts novateurs).</div>
+              </div>
+              <div class="faq-item" data-category="privacy">
+                <button type="button" class="faq-q">Ma soumission est-elle confidentielle ? <span aria-hidden="true"><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span></button>
+                <div class="faq-a">Oui ! Vous pouvez soumettre anonymement. Si vous activez « Soumission anonyme », votre nom et votre promotion ne seront pas collectés.</div>
+              </div>
+              <div class="faq-item" data-category="privacy">
+                <button type="button" class="faq-q">Que deviennent mes données personnelles ? <span aria-hidden="true"><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span></button>
+                <div class="faq-a">Vos données ne sont collectées que si vous choisissez une soumission non anonyme. Elles servent uniquement à vous recontacter concernant votre suggestion.</div>
+              </div>
+              <div class="faq-item" data-category="general">
+                <button type="button" class="faq-q">Combien de temps pour une réponse ? <span aria-hidden="true"><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span></button>
+                <div class="faq-a">L'administration s'engage à répondre dans un délai d'environ 7 jours. Les dossiers complexes peuvent prendre un peu plus de temps.</div>
+              </div>
+              <div class="faq-item" data-category="technical">
+                <button type="button" class="faq-q">Puis-je modifier ma suggestion après l'envoi ? <span aria-hidden="true"><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span></button>
+                <div class="faq-a">Une fois envoyée, vous ne pouvez pas la modifier directement. Vous pouvez ajouter un commentaire sur la page de votre suggestion si cette fonction est activée.</div>
+              </div>
+              <div class="faq-item" data-category="general">
+                <button type="button" class="faq-q">Qui peut voir ma suggestion ? <span aria-hidden="true"><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span></button>
+                <div class="faq-a">Seuls l'administration de la faculté et le PREFAC peuvent consulter les messages. Les soumissions anonymes ne sont pas liées à votre identité.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" style="padding: 2rem; margin-top: 2rem; background: color-mix(in oklch, var(--primary) 5%, var(--card)); border-color: color-mix(in oklch, var(--primary) 20%, var(--border))">
+            <h3 style="margin: 0 0 0.75rem">Vous n'avez pas trouvé votre réponse ?</h3>
+            <p style="margin: 0 0 1rem; color: var(--muted-foreground)">Contactez le PREFAC ou l'administration de la faculté.</p>
+            <p style="margin: 0.25rem 0; font-size: 0.875rem"><strong>Email PREFAC :</strong> prefac@fasi.edu</p>
+            <p style="margin: 0.25rem 0; font-size: 0.875rem"><strong>Bureau :</strong> Bâtiment A, 2ᵉ étage</p>
+            <p style="margin: 0.25rem 0; font-size: 0.875rem"><strong>Disponibilité :</strong> Lun – Ven, 10h – 17h</p>
+          </div>
+        </div>
+      </main>
+      <div id="site-footer-root"></div>
+    </div>
+    <script src="js/icons.js"></script>
+    <script src="js/partials.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/guide.js"></script>
+  </body>
+</html>

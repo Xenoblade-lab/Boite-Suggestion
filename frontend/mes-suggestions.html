@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mes Suggestions | FASI</title>
+    <link rel="stylesheet" href="css/app.css" />
+  </head>
+  <body data-page="mes-suggestions">
+    <div class="site">
+      <div id="site-header-root"></div>
+      <main class="site-main py-8">
+        <div class="container max-w-4xl mx-auto">
+          <div class="page-head">
+            <h1>Mes Suggestions</h1>
+            <p>Consultez l'historique des suggestions soumises et leur statut de traitement</p>
+          </div>
+
+          <div class="toolbar">
+            <div class="search-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input type="search" id="search-suggestions" class="input" placeholder="Rechercher dans les suggestions..." />
+            </div>
+            <button type="button" class="btn btn--outline" style="height: 3rem">Filtrer</button>
+          </div>
+
+          <div class="tabs" role="tablist">
+            <button type="button" class="tab is-active" data-tab="toutes" role="tab">
+              <span class="tab-ico">📄</span> <span>Toutes</span>
+            </button>
+            <button type="button" class="tab" data-tab="suggestion" role="tab">
+              <span class="tab-ico">💡</span> <span>Suggestions</span>
+            </button>
+            <button type="button" class="tab" data-tab="probleme" role="tab">
+              <span class="tab-ico">⚠</span> <span>Problèmes</span>
+            </button>
+            <button type="button" class="tab" data-tab="idee" role="tab">
+              <span class="tab-ico">🚀</span> <span>Idées</span>
+            </button>
+          </div>
+
+          <div id="suggestion-empty" class="card hidden" style="border-style: dashed">
+            <div style="padding: 3rem; text-align: center">
+              <p style="font-weight: 600; margin-bottom: 0.5rem">Aucune suggestion trouvée</p>
+              <p class="text-muted" style="color: var(--muted-foreground); margin: 0">Modifiez votre recherche ou changez d'onglet</p>
+            </div>
+          </div>
+          <div id="suggestion-list" class="suggestion-list"></div>
+        </div>
+      </main>
+      <div id="site-footer-root"></div>
+    </div>
+
+    <script src="js/icons.js"></script>
+    <script>
+      window.MES_SUGGESTIONS_DATA = [
+        {
+          id: 1,
+          type: "suggestion",
+          message:
+            "Il serait utile d'avoir plus de prises électriques dans la salle de lecture pour pouvoir charger nos ordinateurs pendant les révisions.",
+          date: "2024-01-15",
+          status: "en_cours",
+          promotion: "L3",
+        },
+        {
+          id: 2,
+          type: "probleme",
+          message:
+            "Le projecteur de l'amphi B ne fonctionne pas correctement depuis plusieurs semaines. L'image est floue et les couleurs sont altérées.",
+          date: "2024-01-12",
+          status: "resolu",
+          promotion: "M1",
+        },
+        {
+          id: 3,
+          type: "idee",
+          message:
+            "Organiser des hackathons mensuels pour permettre aux étudiants de travailler sur des projets innovants et de développer leur portfolio.",
+          date: "2024-01-10",
+          status: "en_attente",
+          promotion: "L2",
+        },
+        {
+          id: 4,
+          type: "suggestion",
+          message:
+            "Mettre en place un système de mentorat entre les étudiants de Master et ceux de Licence pour faciliter l'intégration et le partage de connaissances.",
+          date: "2024-01-08",
+          status: "approuve",
+          promotion: "M2",
+        },
+        {
+          id: 5,
+          type: "probleme",
+          message:
+            "La connexion WiFi est très instable dans le bâtiment principal, ce qui rend difficile l'accès aux ressources en ligne pendant les cours.",
+          date: "2024-01-05",
+          status: "en_cours",
+          promotion: "L1",
+        },
+      ]
+    </script>
+    <script src="js/partials.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/mes-suggestions.js"></script>
+  </body>
+</html>
