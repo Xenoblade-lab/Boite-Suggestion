@@ -64,7 +64,7 @@
           <span style="color:var(--muted-foreground);margin-left:0.5rem">| Gouvernement du PREFAC</span>
         </div>
       </div>
-      <p class="site-footer__meta">${I.heart} pour les étudiants de la FASI</p>
+      <p class="site-footer__meta">Fait avec <span class="site-footer__heart" aria-hidden="true">${I.heart}</span> pour les étudiants de la FASI</p>
     </div>
     <nav class="site-footer__legal" aria-label="Informations légales">
       <a href="charte.html">Charte d'utilisation</a>

@@ -1,5 +1,9 @@
 /* Graphiques page statistiques — alignés sur le front React / captures */
 
+.stat-page .stat-card__inner > div:last-child {
+  min-width: 0;
+}
+
 .stat-page .charts-two {
   display: grid;
   gap: 1.5rem;
