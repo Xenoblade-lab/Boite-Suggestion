@@ -1,0 +1,440 @@
+/* Graphiques page statistiques — alignés sur le front React / captures */
+
+.stat-page .charts-two {
+  display: grid;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .stat-page .charts-two {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.stat-page .charts-two .chart-card {
+  margin-bottom: 0;
+}
+
+.stat-page .chart-card__head h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.stat-page .chart-card__head h2 .chart-title-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  flex-shrink: 0;
+}
+
+.stat-page .chart-card__head h2 .chart-title-icon--trend {
+  background: color-mix(in oklch, var(--primary) 12%, transparent);
+  color: var(--primary);
+}
+
+.stat-page .chart-card__head h2 .chart-title-icon--check {
+  background: #22c55e;
+  color: #fff;
+}
+
+.stat-page .chart-card__head h2 .chart-title-icon--users {
+  background: color-mix(in oklch, var(--primary) 12%, transparent);
+  color: var(--primary);
+}
+
+/* Couleurs barres groupées (Suggestions orange, Problèmes rouge, Idées bleu — comme les captures) */
+.stat-bar-suggestion {
+  background: #f97316;
+}
+.stat-bar-probleme {
+  background: #dc2626;
+}
+.stat-bar-idee {
+  background: #2563eb;
+}
+
+/* ——— Évolution mensuelle (barres groupées) ——— */
+.stat-monthly {
+  display: flex;
+  gap: 0.75rem;
+  min-height: 280px;
+  padding-top: 0.5rem;
+}
+
+.stat-monthly__y {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  height: 220px;
+  padding-bottom: 1.75rem;
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+  text-align: right;
+  width: 1.75rem;
+  flex-shrink: 0;
+}
+
+.stat-monthly__plot-wrap {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+}
+
+.stat-monthly__grid {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.stat-monthly__grid-line {
+  border-top: 1px dashed var(--border);
+  width: 100%;
+}
+
+.stat-monthly__grid-line:first-child {
+  border-top: none;
+}
+
+.stat-monthly__columns {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.25rem;
+  height: 220px;
+  padding-bottom: 1.75rem;
+  margin-left: 0;
+}
+
+.stat-monthly__col {
+  flex: 1;
+  min-width: 0;
+  max-width: 4.5rem;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+  cursor: default;
+  border-radius: 0.375rem;
+}
+
+.stat-monthly__col-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 1.75rem;
+  border-radius: 0.375rem;
+  background: transparent;
+  pointer-events: none;
+  transition: background 0.15s;
+}
+
+.stat-monthly__col:hover .stat-monthly__col-highlight,
+.stat-monthly__col.is-active .stat-monthly__col-highlight {
+  background: color-mix(in oklch, var(--muted) 45%, transparent);
+}
+
+.stat-monthly__bargroup {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 3px;
+  height: 220px;
+  width: 100%;
+  padding: 0 2px;
+  z-index: 1;
+}
+
+.stat-monthly__bar {
+  width: 28%;
+  max-width: 0.85rem;
+  min-height: 2px;
+  border-radius: 4px 4px 0 0;
+  transition: opacity 0.15s;
+}
+
+.stat-monthly__xlabel {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+  white-space: nowrap;
+}
+
+.stat-monthly__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.25rem;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+}
+
+.stat-monthly__legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.stat-monthly__legend i {
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* Tooltip flottant graphique mensuel */
+.stat-tooltip {
+  position: fixed;
+  z-index: 200;
+  min-width: 9rem;
+  padding: 0.65rem 0.85rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 40px -10px rgb(0 0 0 / 0.2);
+  font-size: 0.8125rem;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.12s;
+}
+
+.stat-tooltip.is-visible {
+  opacity: 1;
+}
+
+.stat-tooltip__title {
+  font-weight: 700;
+  color: var(--foreground);
+  margin-bottom: 0.5rem;
+}
+
+.stat-tooltip__row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+  color: var(--muted-foreground);
+}
+
+.stat-tooltip__swatch {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.stat-tooltip__row strong {
+  margin-left: auto;
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+/* ——— Donut statuts ——— */
+.stat-donut-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0;
+}
+
+.stat-donut-ring {
+  position: relative;
+  width: 100%;
+  max-width: 260px;
+  margin: 0 auto;
+}
+
+.stat-donut-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.stat-donut-seg {
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.stat-donut-svg:hover .stat-donut-seg {
+  opacity: 0.45;
+}
+
+.stat-donut-svg .stat-donut-seg:hover,
+.stat-donut-svg .stat-donut-seg.is-hover {
+  opacity: 1;
+}
+
+.stat-donut-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.5rem 0.75rem;
+  box-shadow: 0 4px 20px -4px rgb(0 0 0 / 0.12);
+  font-size: 0.75rem;
+  text-align: center;
+  min-width: 5.5rem;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.stat-donut-wrap.show-center .stat-donut-center {
+  opacity: 1;
+}
+
+.stat-donut-center__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.stat-donut-center-left {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--muted-foreground);
+  font-size: 0.8125rem;
+}
+
+.stat-donut-center__value {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--foreground);
+  flex-shrink: 0;
+}
+
+.stat-donut-labels {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.35rem 0.75rem;
+  font-size: 0.7rem;
+  max-width: 100%;
+}
+
+.stat-donut-labels span {
+  white-space: nowrap;
+}
+
+/* ——— Barres horizontales promotion ——— */
+.stat-hbar-wrap {
+  padding: 0.25rem 0 1.5rem;
+}
+
+.stat-hbar__axis-x {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 2.75rem;
+  margin-bottom: 0.35rem;
+  padding-right: 0.25rem;
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+}
+
+.stat-hbar__rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.stat-hbar__row {
+  display: grid;
+  grid-template-columns: 2.25rem 1fr;
+  gap: 0.65rem;
+  align-items: center;
+  position: relative;
+}
+
+.stat-hbar__label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--foreground);
+  text-align: right;
+}
+
+.stat-hbar__track {
+  height: 1.75rem;
+  background: color-mix(in oklch, var(--primary) 8%, var(--muted));
+  border-radius: 0.375rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-hbar__fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: #1d4ed8;
+  border-radius: 0 0.375rem 0.375rem 0;
+  min-width: 4px;
+  transition: width 0.35s ease;
+}
+
+.stat-hbar__row:hover .stat-hbar__fill {
+  filter: brightness(1.05);
+}
+
+.stat-hbar-tooltip {
+  position: fixed;
+  z-index: 200;
+  padding: 0.5rem 0.65rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 40px -10px rgb(0 0 0 / 0.2);
+  font-size: 0.8125rem;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.12s;
+}
+
+.stat-hbar-tooltip.is-visible {
+  opacity: 1;
+}
+
+.stat-hbar-tooltip__promo {
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.stat-hbar-tooltip__row {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--muted-foreground);
+}
+
+.stat-hbar-tooltip__swatch {
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #1d4ed8;
+  border-radius: 2px;
+}
