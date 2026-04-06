@@ -8,6 +8,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem; /* ancres (#...) : contenu pas masqué sous la barre fixe */
 }
 
 body {
@@ -50,14 +51,25 @@ svg {
   flex: 1;
 }
 
-/* Header */
+/* Espace réservé : le <header> est en fixed et ne participe plus au flux */
+#site-header-root {
+  height: 4rem;
+  flex-shrink: 0;
+}
+
+/* Header — toujours visible au scroll */
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 50;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 90;
   border-bottom: 1px solid var(--border);
-  background: color-mix(in oklch, var(--card) 80%, transparent);
-  backdrop-filter: blur(8px);
+  background: color-mix(in oklch, var(--card) 92%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 1px 0 color-mix(in oklch, var(--border) 60%, transparent);
 }
 
 .site-header__inner {
@@ -939,6 +951,17 @@ svg {
   height: 1rem;
 }
 
+.tab-ico {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tab-ico svg {
+  display: block;
+}
+
 @media (max-width: 639px) {
   .tab span:not(.tab-ico) {
     display: none;
@@ -1532,6 +1555,17 @@ svg {
 .table-actions {
   display: flex;
   gap: 0.5rem;
+}
+
+.btn-ico {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+.btn-ico svg {
+  display: block;
 }
 
 /* Modal */

@@ -31,7 +31,13 @@
     return okSearch && okTab
   }
 
-  const typeEmoji = { suggestion: "💡", probleme: "⚠️", idee: "🚀" }
+  function typeIconSvg(type) {
+    const I = window.FasiIcons
+    if (!I) return ""
+    var key = type === "probleme" ? "alert" : type === "idee" ? "rocket" : "lightbulb"
+    var raw = I[key] || I.lightbulb
+    return raw.replace(/width="24"/g, 'width="14"').replace(/height="24"/g, 'height="14"')
+  }
 
   function render() {
     const filtered = data.filter(matches)
@@ -59,9 +65,10 @@
         '<div style="display:flex;flex-wrap:wrap;gap:0.5rem;align-items:center">' +
         '<span class="badge ' +
         t.cls +
-        '">' +
-        (typeEmoji[s.type] || "📌") +
-        " " +
+        '" style="display:inline-flex;align-items:center;gap:0.35rem">' +
+        '<span style="display:inline-flex;flex-shrink:0;line-height:0" aria-hidden="true">' +
+        typeIconSvg(s.type) +
+        "</span>" +
         t.label +
         "</span>" +
         '<span class="badge badge--muted">' +

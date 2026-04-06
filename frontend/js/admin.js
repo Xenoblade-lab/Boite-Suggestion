@@ -112,9 +112,13 @@
         escapeHtml(s.date) +
         "</td><td><div class='table-actions'><button type='button' class='btn btn--ghost btn--sm admin-reply' data-id='" +
         s.id +
-        "' title='Répondre'>💬</button><button type='button' class='btn btn--ghost btn--sm text-destructive admin-del' data-id='" +
+        "' title='Répondre' aria-label='Répondre'><span class='btn-ico' aria-hidden='true'>" +
+        (window.FasiIcons && window.FasiIcons.reply ? window.FasiIcons.reply : "") +
+        "</span></button><button type='button' class='btn btn--ghost btn--sm text-destructive admin-del' data-id='" +
         s.id +
-        "' title='Supprimer'>🗑</button></div></td>"
+        "' title='Supprimer' aria-label='Supprimer'><span class='btn-ico' aria-hidden='true'>" +
+        (window.FasiIcons && window.FasiIcons.trash ? window.FasiIcons.trash : "") +
+        "</span></button></div></td>"
       tbody.appendChild(tr)
     })
 
